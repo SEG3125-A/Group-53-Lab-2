@@ -1,4 +1,4 @@
-const grocery_items = [
+export const grocery_items = [
     ["Spinach", 2.99, "spinach.jpg", true, true, false, true],
     ["Tofu", 3.49, "tofu.jpg", true, true, true, true],
     ["Quinoa", 4.99, "quinoa.jpg", true, true, true, true],
