@@ -1,3 +1,4 @@
+//Executes when DOM Content is loaded
 document.addEventListener("DOMContentLoaded", function() {
 
     function save_preferences() {
@@ -12,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("gluten-free-box").addEventListener("change", save_preferences);
     document.getElementById("organic-box").addEventListener("change", save_preferences);
     document.getElementById("lactose-free-box").addEventListener("change", save_preferences);
-
+    
+    // Restoring previous input
     let vegetarian = localStorage.getItem("vegetarian") === "true";
     let gluten_free = localStorage.getItem("glutenFree") === "true";
     let organic = localStorage.getItem("organic") === "true";
     let lactose_free = localStorage.getItem("lactoseFree") === "true";
 
-    // Restoring previous input
     document.getElementById("vegetarian-box").checked = vegetarian;
     document.getElementById("gluten-free-box").checked = gluten_free;
     document.getElementById("organic-box").checked = organic;

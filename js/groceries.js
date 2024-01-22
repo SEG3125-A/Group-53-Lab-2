@@ -38,9 +38,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (gluten_free) {gluten_free = '1';} else {gluten_free = '0';}
         if (organic) {organic = '1';} else {organic = '0';}
         if (lactose_free) {lactose_free = '1';} else {lactose_free = '0';}
+        console.log("User preferemces: ",vegetarian, gluten_free, organic, lactose_free);
 
         let result = [];
 
+        //Skip items when they are not aligned with user preferences
+        //Otherwise, push them to the results array
         for (let item of grocery_items) {
             if (vegetarian === '1' && item[3] === 0) {continue;}
             if (gluten_free === '1' && item[4] === 0) {continue;}
@@ -53,8 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     let filtered_grocery_items = filter_grocery_items(grocery_items);
-    let grocery_list = document.getElementById("grocery-list");
 
+    //Display the Customer's grocery list
+    let grocery_list = document.getElementById("grocery-list");
     for (let item of filtered_grocery_items) {
 
         // Div element to enclose all aspects of the product
