@@ -1,25 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     const grocery_items = [
-        ["Spinach", 2.99, "spinach.jpg", 1, 1, 0, 1],
-        ["Tofu", 3.49, "tofu.jpg", 1, 1, 1, 1],
-        ["Quinoa", 4.99, "quinoa.jpg", 1, 1, 1, 1],
-        ["Almond Milk", 2.79, "almond-milk.jpg", 1, 1, 0, 1],
-        ["Brown Rice", 1.99, "brown-rice.jpg", 1, 1, 0, 1],
-        ["Gluten-Free Oats", 3.29, "oats.jpg", 1, 1, 0, 1],
-        ["Organic Apples", 4.49, "apples.jpg", 1, 1, 1, 1],
-        ["Organic Spinach", 3.99, "spinach.jpg", 1, 1, 1, 1],
-        ["Yogurt (Lactose-free)", 2.89, "yogurt.jpg", 1, 1, 0, 1],
-        ["Cheese (Lactose-free)", 4.19, "cheese.jpg", 1, 1, 0, 1],
-        ["Chicken Breast", 6.99, "chicken-breast.jpg", 0, 1, 1, 1],
-        ["Salmon Fillet", 8.49, "salmon.jpg", 0, 1, 1, 1],
-        ["Eggs", 2.19, "eggs.jpg", 1, 1, 1, 1],
-        ["White Bread", 3.99, "white-bread.jpg", 1, 0, 0, 1],
-        ["Avocado", 1.99, "avocado.jpg", 1, 1, 0, 1],
-        ["Broccoli", 1.29, "broccoli.jpg", 1, 1, 0, 1],
-        ["Shrimp", 9.99, "shrimp.jpg", 0, 1, 1, 1],
-        ["Coffee Beans", 6.99, "coffee.jpg", 1, 1, 1, 1],
-        ["Milk", 3.79, "milk.jpg", 1, 1, 1, 0]
+        ["Spinach", 2.99, "spinach.jpg", true, true, false, true],
+        ["Tofu", 3.49, "tofu.jpg", true, true, true, true],
+        ["Quinoa", 4.99, "quinoa.jpg", true, true, true, true],
+        ["Almond Milk", 2.79, "almond-milk.jpg", true, true, false, true],
+        ["Brown Rice", 1.99, "brown-rice.jpg", true, true, false, true],
+        ["Gluten-Free Oats", 3.29, "oats.jpg", true, true, false, true],
+        ["Organic Apples", 4.49, "apples.jpg", true, true, true, true],
+        ["Organic Spinach", 3.99, "spinach.jpg", true, true, true, true],
+        ["Yogurt (Lactose-free)", 2.89, "yogurt.jpg", true, true, false, true],
+        ["Cheese (Lactose-free)", 4.19, "cheese.jpg", true, true, false, true],
+        ["Chicken Breast", 6.99, "chicken-breast.jpg", false, true, true, true],
+        ["Salmon Fillet", 8.49, "salmon.jpg", false, true, true, true],
+        ["Eggs", 2.19, "eggs.jpg", true, true, true, true],
+        ["White Bread", 3.99, "white-bread.jpg", true, false, false, true],
+        ["Avocado", 1.99, "avocado.jpg", true, true, false, true],
+        ["Broccoli", 1.29, "broccoli.jpg", true, true, false, true],
+        ["Shrimp", 9.99, "shrimp.jpg", false, true, true, true],
+        ["Coffee Beans", 6.99, "coffee.jpg", true, true, true, true],
+        ["Milk", 3.79, "milk.jpg", true, true, true, false]
     ];
 
     function update_local_storage(event) {
@@ -34,10 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
         let organic = localStorage.getItem("organic") === "true";
         let lactose_free = localStorage.getItem("lactoseFree") === "true";
 
-        if (vegetarian) {vegetarian = '1';} else {vegetarian = '0';}
-        if (gluten_free) {gluten_free = '1';} else {gluten_free = '0';}
-        if (organic) {organic = '1';} else {organic = '0';}
-        if (lactose_free) {lactose_free = '1';} else {lactose_free = '0';}
         console.log("User preferemces: ",vegetarian, gluten_free, organic, lactose_free);
 
         let result = [];
@@ -45,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
         //Skip items when they are not aligned with user preferences
         //Otherwise, push them to the results array
         for (let item of grocery_items) {
-            if (vegetarian === '1' && item[3] === 0) {continue;}
-            if (gluten_free === '1' && item[4] === 0) {continue;}
-            if (organic === '1' && item[5] === 0) {continue;}
-            if (lactose_free === '1' && item[6] === 0) {continue;}
+            if (vegetarian && !item[3]) {continue;}
+            if (gluten_free && !item[4]) {continue;}
+            if (organic && !item[5]) {continue;}
+            if (lactose_free && !item[6]) {continue;}
             result.push(item);
         }
 
