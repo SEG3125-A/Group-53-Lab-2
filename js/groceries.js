@@ -1,4 +1,4 @@
-var grocery_items = [
+const grocery_items = [
     ["Spinach", 2.99, "spinach.jpg", true, true, false, true],
     ["Tofu", 3.49, "tofu.jpg", true, true, true, true],
     ["Quinoa", 4.99, "quinoa.jpg", true, true, true, true],
@@ -19,6 +19,8 @@ var grocery_items = [
     ["Coffee Beans", 6.99, "coffee.jpg", true, true, true, true],
     ["Milk", 3.79, "milk.jpg", true, true, true, false]
 ];
+
+localStorage.se("grocery_items", grocery_items);
 
 document.addEventListener("DOMContentLoaded", function() {
 

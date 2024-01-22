@@ -1,4 +1,4 @@
-var grocery_items = [
+const grocery_items = [
     ["Spinach", 2.99, "spinach.jpg", true, true, false, true],
     ["Tofu", 3.49, "tofu.jpg", true, true, true, true],
     ["Quinoa", 4.99, "quinoa.jpg", true, true, true, true],
@@ -28,13 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (quantity == null || quantity == 0){
             continue;
         }
-        console.log(item[0], "quantity:", quantity);
         
         // Div element to enclose all aspects of the product
         let item_div = document.createElement("div");
 
         // Name and price of any specific product
-        let product = document.createTextNode(` ${item[0]}  ${quantity} ($${(item[1]*quantity).toFixed(2)})`);
+        let product = document.createTextNode(` ${item[0]}, x${quantity} ($${(item[1]*quantity).toFixed(2)})`);
         item_div.appendChild(product);
 
         // Add image of each product
