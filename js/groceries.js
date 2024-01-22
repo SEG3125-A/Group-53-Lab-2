@@ -20,7 +20,7 @@ const grocery_items = [
     ["Milk", 3.79, "milk.jpg", true, true, true, false]
 ];
 
-localStorage.se("grocery_items", grocery_items);
+localStorage.setItem("grocery_items", String(grocery_items));
 
 document.addEventListener("DOMContentLoaded", function() {
 
