@@ -1,4 +1,4 @@
-export const grocery_items = [
+const grocery_items = [
     ["Spinach", 2.99, "spinach.jpg", true, true, false, true],
     ["Tofu", 3.49, "tofu.jpg", true, true, true, true],
     ["Quinoa", 4.99, "quinoa.jpg", true, true, true, true],
@@ -36,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let result = [];
 
-        //Skip items when they are not aligned with user preferences
-        //Otherwise, push them to the results array
         for (let item of grocery_items) {
             if (vegetarian && !item[3]) {continue;}
             if (gluten_free && !item[4]) {continue;}
@@ -80,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let img = document.createElement("img");
         img.src = `images/items/${item[2]}`;
         item_div.appendChild(img);
-        
+
         //Add the new div element to the Grocery List
         grocery_list.appendChild(item_div);
         grocery_list.appendChild(document.createElement("br"));
