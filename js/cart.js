@@ -1,16 +1,3 @@
-// Check if the project is running for the first time
-if (!localStorage.getItem("firstRun")) {
-    // Clear the localStorage
-    localStorage.clear();
-
-    // Set the first-run flag
-    localStorage.setItem("firstRun", "true");
-
-    // Optionally, add any other initialization logic here
-}
-
-// Rest of your project's JavaScript code...
-
 const grocery_items = [
     ["Spinach", 2.99, "spinach.jpg", true, true, false, true],
     ["Tofu", 3.49, "tofu.jpg", true, true, true, true],
